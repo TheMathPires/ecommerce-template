@@ -1,8 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col md="3">
-        <v-card height="250" width="100%" class="mx-auto">
+        <v-card height="250" width="250">
           <v-navigation-drawer permanent>
             <v-list-item>
               <v-list-item-content>
@@ -30,25 +29,30 @@
                 
               </v-list-item>
             </v-list>
+
+
+
           </v-navigation-drawer>
         </v-card>
-      </v-col>
+
+      <Products/>
     </v-row>
   </v-container>
 </template>
 
 <script>
+  import Products from '@/components/Products';
+  
   export default {
-    name: 'HelloWorld',
-
+    name: 'Navigation',
+    components: { Products },
     data: () => {
       return {
         items: [
-            { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-            { title: 'Photos', icon: 'mdi-image' },
-            { title: 'About', icon: 'mdi-help-box' },
+            { title: 'Products', icon: 'mdi-view-dashboard' },
+            { title: 'Contact', icon: 'mdi-image' },
+            { title: 'About us', icon: 'mdi-help-box' },
         ], 
-        right: null,
       }
     }
   }
