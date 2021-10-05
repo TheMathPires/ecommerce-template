@@ -1,23 +1,26 @@
 <template>
   <v-app>
     <v-main>
-      <Navigation/>
+      <v-container>
+        <v-row>
+          <Navigation />
+          <v-col md="9">
+            <router-view />
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Navigation from '@/components/Navigation';
+import Navigation from "@/components/Navigation";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
-    Navigation
+    Navigation,
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
