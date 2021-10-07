@@ -8,7 +8,13 @@
         <h1>{{ name }}</h1>
 
         <div class="colors">
-            Cor: <button @click="changePicture()" v-for="(color, c) in colors" :key="c"> {{ color.color }} </button>
+          Cor: <button @click="changePicture($event)" v-for="(color, c) in colors" :key="c" :id="color.color">{{ color.color }}</button>
+        </div>
+
+        <hr>
+
+        <div class="sizes">
+          Tamanhos: XS S M L XL
         </div>
       </v-col>
     </v-row>
@@ -35,10 +41,18 @@ export default {
         };
     },
     methods: {
-      changePicture: function () {
+      changePicture: function (event) {
         const productImage = document.querySelector('.product-detail img')
-        console.log(productImage.src)
-        productImage.src = (productImage.src.includes('caramelo')) ? require("@/assets/bolsa.jpg") : require("@/assets/caramelo.jpg") 
+        productImage.src = (event.target.id === 'caqui') ? require("@/assets/bolsa.jpg") : require("@/assets/caramelo.jpg") 
+
+        const colorButtons = document.querySelectorAll('.product-detail button')
+        colorButtons.forEach(btn => {
+          if (btn.classList.contains('clicked')) {
+            btn.classList.remove('clicked')
+          }
+        })
+
+        event.target.classList.add('clicked')
       }
     },
 };
@@ -55,6 +69,9 @@ export default {
   margin-right: .5rem;
 }
 .product-detail button.clicked {
-  margin-right: .2rem;
+  font-weight: bold;
+}
+.product-detail .colors, .product-detail .sizes {
+  padding: 2rem 0;
 }
 </style>
