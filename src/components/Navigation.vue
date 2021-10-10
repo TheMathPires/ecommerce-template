@@ -1,17 +1,6 @@
 <template>
-  <v-card height="260" width="250">
-    <v-navigation-drawer permanent>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            Vuetify Ecommerce
-          </v-list-item-title>
-          <v-list-item-subtitle> Navigation </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
-
+  <v-card height="180" width="200">
+    <v-navigation-drawer>
       <v-list>
         <v-list-item v-for="item in items" :key="item.title">
           <v-list-item-icon>
@@ -19,7 +8,9 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <router-link :to="item.link">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </router-link>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -33,11 +24,18 @@ export default {
   data: () => {
     return {
       items: [
-        { title: "Products", icon: "mdi-view-dashboard" },
-        { title: "Contact", icon: "mdi-image" },
-        { title: "About us", icon: "mdi-help-box" },
+        { title: "Products", icon: "mdi-view-dashboard", link: "/" },
+        { title: "Contact", icon: "mdi-image", link: "/" },
+        { title: "About us", icon: "mdi-help-box", link: "/" },
       ],
     };
   },
 };
 </script>
+
+<style>
+.v-list-item__content > a {
+  text-decoration: none;
+  color: #777;
+}
+</style>
