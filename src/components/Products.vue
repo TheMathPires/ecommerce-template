@@ -6,7 +6,7 @@
         <div class="product-info">
           <strong>{{ product.price }}</strong> <br />
           <span>{{ product.name }}</span> <br />
-          <router-link to="/product-detail" class="show-more">Ver mais</router-link>
+          <router-link :to="'/product-detail/' + product.id" class="show-more">Ver mais</router-link>
         </div>
       </div>
     </v-col>
@@ -24,41 +24,49 @@ export default {
           name: "Mala a tiracolo acolchoada",
           image: require("@/assets/bolsa.jpg"),
           price: "19,99€",
+          id: '001'
         },
         {
           name: "Mala a tiracolo acolchoada",
           image: require("@/assets/bolsa.jpg"),
           price: "19,99€",
+          id: '002'
         },
         {
           name: "Mala a tiracolo acolchoada",
           image: require("@/assets/bolsa.jpg"),
           price: "19,99€",
+          id: '003'
         },
         {
           name: "Mala a tiracolo acolchoada",
           image: require("@/assets/bolsa.jpg"),
           price: "19,99€",
+          id: '004'
         },
         {
           name: "Mala a tiracolo acolchoada",
           image: require("@/assets/bolsa.jpg"),
           price: "19,99€",
+          id: '005'
         },
         {
           name: "Mala a tiracolo acolchoada",
           image: require("@/assets/bolsa.jpg"),
           price: "19,99€",
+          id: '006'
         },
         {
           name: "Mala a tiracolo acolchoada",
           image: require("@/assets/bolsa.jpg"),
           price: "19,99€",
+          id: '007'
         },
         {
           name: "Mala a tiracolo acolchoada",
           image: require("@/assets/bolsa.jpg"),
           price: "19,99€",
+          id: '008'
         },
       ],
     };
